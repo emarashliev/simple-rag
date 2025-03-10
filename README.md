@@ -1,16 +1,16 @@
 # Simple RAG System
 
-A Retrieval-Augmented Generation (RAG) system for querying board game rules using vector embeddings and LLMs.
+A Retrieval-Augmented Generation (RAG) system for querying vector embeddings and LLMs.
 
 ## Overview
 
 This project demonstrates a simple implementation of a RAG system that:
 
-1. Processes PDF documents containing board game rules
+1. Processes and extracts data from PDF documents
 2. Splits them into chunks and generates vector embeddings
 3. Stores these embeddings in a Chroma vector database
 4. Allows users to query the system in natural language
-5. Retrieves relevant context and generates accurate answers about game rules
+5. Retrieves relevant context and generates accurate answers
 
 ## Requirements
 
@@ -21,7 +21,7 @@ This project demonstrates a simple implementation of a RAG system that:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/simple-rag.git
+git clone https://github.com/emarashliev/simple-rag.git
 cd simple-rag
 ```
 
@@ -31,6 +31,10 @@ pip install -r requirements.txt
 ```
 
 3. Make sure Ollama is installed and running on your system. Visit [Ollama's website](https://ollama.ai/) for installation instructions.
+```bash
+ollama pull mistral
+ollama serve
+```
 
 ## Usage
 
@@ -50,7 +54,7 @@ Options:
 
 ### Querying the System
 
-To ask questions about board game rules:
+To ask questions:
 
 ```bash
 python query_data.py --query "How many players can play Monopoly?" --model mistral
@@ -71,7 +75,7 @@ pytest test_rag.py
 
 ## Project Structure
 
-- `data/`: Contains PDF documents with board game rules
+- `data/`: Contains PDF documents
 - `chroma/`: Vector database storage (created during database population)
 - `populate_database.py`: Script to process documents and populate the database
 - `query_data.py`: Script to query the RAG system
@@ -88,7 +92,7 @@ pytest test_rag.py
 
 ## Extending the System
 
-To add more game rules:
+To add more data:
 1. Add PDFs to the `data/` directory
 2. Run `populate_database.py` with the `--clear_db` flag if you want to rebuild the entire database
 
